@@ -2,22 +2,22 @@ import { appendFileSync } from 'fs'
 
 export class CSVWriter<T> {
     constructor(private columns: (keyof T)[]) {
-        this.csv = this.columns.join(',') + '\n'
+        this.data = this.columns.join(',') + '\n'
     }
-    private csv: string
+    private data: string
 
     save(filename: string): void {
-        appendFileSync(filename, this.csv)
-        this.csv = '\n'
+        appendFileSync(filename, this.data)
+        this.data = '\n'
         console.log('file saved to ' + filename);
 
     }
 
     addRows(values: T[]): void {
         for (const value of values) {
-            this.csv += this.formatRow(value) + '\n'
+            this.data += this.formatRow(value) + '\n'
         }
-        console.log(this.csv);
+        console.log(this.data);
 
     }
 

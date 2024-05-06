@@ -2,6 +2,7 @@
 
 import { Command } from "commander";
 import figlet from 'figlet'
+import { convert } from "./convert";
 import pjson from '../package.json';
 
 const program = new Command()
@@ -12,14 +13,14 @@ program
     .description('A CLI tool for converting files format written in TypeScript')
 
 program
-    // .action(() => {
-    //     console.log(`welcome to ${pjson.name}`)
-    //     program.help()
-    // })
-    .argument('[source]', 'The name of the source file')
-    .argument('[output]', 'The name of the output file')
+    .argument('<source>', 'The name of the source file')
+    .argument('<output>', 'The name of the output file')
     .action((source: string, output: string): void => {
-        console.log(`Hello ${source}`);
+        try {
+            convert(source, output)
+        } catch (error: any) {
+            program.error(error)
+        }
     })
 
 if (process.argv.length === 2) {
