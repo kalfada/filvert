@@ -14,10 +14,12 @@
   "author": "Daniel Kalfa",
   "license": "MIT",
   "devDependencies": {
+    "@types/figlet": "^1.5.8",
     "@types/node": "^20.12.8",
     "typescript": "^5.4.5"
   },
   "dependencies": {
-    "commander": "^12.0.0"
+    "commander": "^12.0.0",
+    "figlet": "^1.7.0"
   }
 }

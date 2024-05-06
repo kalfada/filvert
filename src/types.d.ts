@@ -1,0 +1,4 @@
+interface Writer {
+    save()
+
+}
